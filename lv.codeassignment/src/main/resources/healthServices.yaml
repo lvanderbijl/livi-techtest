@@ -1,0 +1,226 @@
+openapi: "3.0.2"
+info:
+  version: 1.0.0
+  title: Health Services
+  license:
+    name: MIT
+servers:
+  - url: http://healthservices.swagger.io/v1
+paths:
+  /pollresults/{serviceId}:
+    get:
+      summary: Health checks for a specific service
+      operationId: getMonitorPollsByServiceId
+      tags:
+        - healthCheck
+      parameters:
+        - name: serviceId
+          in: path
+          required: true
+          description: The id of the service to retrieve
+          schema:
+            type: string
+      responses:
+        '200':
+          description: A list of health checks
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/HealthCheck"
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+    post:
+      summary: add a health check for a service
+      operationId: createHealthCheck
+      tags:
+        - healthCheck
+      parameters:
+        - name: serviceId
+          in: path
+          required: true
+          description: The id of the service to retrieve
+          schema:
+            type: string
+      requestBody:
+        description: the health check to add
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/MonitorPollResult"
+      responses:
+        '201':
+          description: Null response
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+  /services:
+    get:
+      summary: Gets all services
+      operationId: getServices
+      tags:
+        - services
+      parameters:
+        - name: forceStatusCode
+          in: query
+          required: false
+          description: Debug param to allow forcing the status code result
+          schema:
+            type: number
+      responses:
+        '200':
+          description: A list of Services
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Services"
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+    post:
+      summary: add a service
+      operationId: createService
+      tags:
+        - service
+      requestBody:
+        description: the service to add
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ServiceDetail"
+      responses:
+        '201':
+          description: Null response
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+  /services/{serviceId}:
+    get:
+      summary: Gets a specific service
+      operationId: getServiceById
+      tags:
+        - services
+      parameters:
+        - name: serviceId
+          in: path
+          required: true
+          description: The name of the service
+          schema:
+            type: string
+        - name: forceStatusCode
+          in: query
+          required: false
+          description: Debug param to allow forcing the status code result
+          schema:
+            type: number
+      responses:
+        '200':
+          description: A service
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ServiceDetail"
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+    post:
+      summary: add a health check for a service
+      operationId: createHealthCheck
+      tags:
+        - healthCheck
+      parameters:
+        - name: serviceId
+          in: path
+          required: true
+          description: The id of the service to retrieve
+          schema:
+            type: string
+      requestBody:
+        description: the health check to add
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/MonitorPollResult"
+      responses:
+        '201':
+          description: Null response
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+components:
+  schemas:
+    Error:
+      type: object
+      required:
+        - code
+        - message
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
+    MonitorPollResult:
+      type: object
+      required:
+        - serviceName
+        - id
+        - health
+      properties:
+        id:
+          type: string
+          format: uuid
+        serviceName:
+          type: string
+        health:
+          $ref: "#/components/schemas/HealthStatus"
+    MonitorStatus:
+      type: string
+      enum:
+        - OK
+        - FAIL
+    ServiceDetail:
+      type: object
+      required:
+        - name
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+        createDate:
+          type: string
+          format: date
+        modifiedDate:
+          type: string
+          format: date
+        checks:
+          type: array
+          items:
+            $ref: "#/components/schemas/HealthCheck"
+    Services:
+      type: array
+      items:
+        $ref: "#/components/schemas/ServiceDetail"
+    

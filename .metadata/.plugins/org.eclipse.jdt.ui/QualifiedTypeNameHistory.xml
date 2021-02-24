@@ -2,6 +2,37 @@
 <qualifiedTypeNameHistroy>
     <fullyQualifiedTypeName name="org.junit.jupiter.api.Assertions"/>
     <fullyQualifiedTypeName name="io.vertx.core.http.HttpMethod"/>
+    <fullyQualifiedTypeName name="io.reactivex.Completable"/>
+    <fullyQualifiedTypeName name="io.vertx.reactivex.ext.web.Router"/>
+    <fullyQualifiedTypeName name="io.vertx.ext.web.Router"/>
+    <fullyQualifiedTypeName name="java.util.Random"/>
+    <fullyQualifiedTypeName name="io.vertx.ext.web.openapi.RouterBuilder"/>
+    <fullyQualifiedTypeName name="io.vertx.ext.web.RoutingContext"/>
+    <fullyQualifiedTypeName name="HealthService.Routing.HealthServiceRouting"/>
+    <fullyQualifiedTypeName name="org.junit.jupiter.params.provider.ValueSource"/>
+    <fullyQualifiedTypeName name="org.junit.jupiter.params.ParameterizedTest"/>
+    <fullyQualifiedTypeName name="org.junit.jupiter.params.provider.Arguments"/>
+    <fullyQualifiedTypeName name="java.util.stream.Stream"/>
+    <fullyQualifiedTypeName name="org.junit.jupiter.api.RepeatedTest"/>
+    <fullyQualifiedTypeName name="java.util.Arrays"/>
     <fullyQualifiedTypeName name="io.vertx.reactivex.ext.web.client.WebClient"/>
+    <fullyQualifiedTypeName name="io.vertx.core.http.HttpClient"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="java.util.concurrent.CompletableFuture"/>
+    <fullyQualifiedTypeName name="io.vertx.core.Future"/>
+    <fullyQualifiedTypeName name="io.vertx.core.impl.CloseFuture"/>
+    <fullyQualifiedTypeName name="java.util.concurrent.Future"/>
+    <fullyQualifiedTypeName name="io.vertx.core.AsyncResult"/>
+    <fullyQualifiedTypeName name="io.vertx.core.Promise"/>
     <fullyQualifiedTypeName name="io.vertx.ext.web.client.WebClient"/>
+    <fullyQualifiedTypeName name="com.lv.codeassignments.kry.serviceMonitor.monitors.ServiceDetails"/>
+    <fullyQualifiedTypeName name="java.lang.String"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="org.junit.jupiter.api.extension.ExtendWith"/>
+    <fullyQualifiedTypeName name="io.vertx.core.Vertx"/>
+    <fullyQualifiedTypeName name="io.vertx.core.Handler"/>
+    <fullyQualifiedTypeName name="java.util.Date"/>
+    <fullyQualifiedTypeName name="java.util.Calendar"/>
+    <fullyQualifiedTypeName name="java.time.LocalDateTime"/>
+    <fullyQualifiedTypeName name="java.time.format.DateTimeFormatter"/>
 </qualifiedTypeNameHistroy>

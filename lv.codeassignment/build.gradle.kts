@@ -4,6 +4,7 @@ import org.gradle.api.tasks.testing.logging.TestLogEvent.*
 plugins {
   java
   application
+  eclipse
   id("com.github.johnrengelman.shadow") version "6.1.0"
 }
 
@@ -17,7 +18,7 @@ repositories {
 val vertxVersion = "4.0.2"
 val junitJupiterVersion = "5.7.0"
 
-val mainVerticleName = "HealthService.MainVerticle"
+val mainVerticleName = "com.lv.codeassignments.kry.serviceMonitor.MainVerticle"
 val launcherClassName = "io.vertx.core.Launcher"
 
 val watchForChange = "src/**/*"
@@ -35,6 +36,7 @@ dependencies {
   implementation("io.vertx:vertx-web")
   implementation("io.vertx:vertx-web-openapi")
   implementation("io.vertx:vertx-mysql-client")
+  implementation("io.vertx:vertx-pg-client")
   implementation("io.vertx:vertx-web-api-contract")
   testImplementation("io.vertx:vertx-junit5")
   testImplementation("org.junit.jupiter:junit-jupiter:$junitJupiterVersion")
